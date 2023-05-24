@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* layout */
+:root {
+  --primary: #000;
+  --error: red;
+}
+* {
+  font-family: 'Bungee Outline', cursive;
+}
+.gif-details {
+  box-shadow: 2px 2px 5px var(--primary);
+}
+
+/* new gif form */
+label,
+input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+/* navbar */
+nav a {
+  margin-left: 10px;
+  color: #fff;
+}
+nav button {
+  background-color: var(--primary);
+  color: whitesmoke;
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+/* auth forms */
+form.signup,
+form.login {
+  max-width: 400px;
+  margin: 16.8% auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 2px solid var(--primary);
+  box-shadow: 2px 2px 5px var(--primary);
+}
