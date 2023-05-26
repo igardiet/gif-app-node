@@ -9,7 +9,6 @@ cloudinary.config({
 
 const uploadFile = async (filePath) => {
   return await cloudinary.uploader.upload(filePath, {
-    resource_type: 'gif',
     folder: 'uploads',
   });
 };
