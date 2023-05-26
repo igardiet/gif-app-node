@@ -5,7 +5,7 @@ const gifSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
+      required: false,
     },
     category: {
       type: String,
