@@ -7,10 +7,6 @@ const gifSchema = new Schema(
       type: String,
       required: false,
     },
-    category: {
-      type: String,
-      required: true,
-    },
     img: {
       type: String,
       required: true,
