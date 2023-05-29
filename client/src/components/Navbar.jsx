@@ -18,12 +18,25 @@ export const Navbar = () => {
         </Link>
         <nav className='flex items-center'>
           {user && (
-            <div>
-              <span className='text-white'>{user.email}</span>
-              <button className='bg-white' onClick={handleClick}>
-                <span className='text-black'>Log out</span>
-              </button>
-            </div>
+            <>
+              <div className='mr-[250px]'>
+                <Link className='mx-[32px]' to='/akira'>
+                  Akira
+                </Link>
+                <Link className='mx-[32px]' to='/dragonball'>
+                  Dragon Ball
+                </Link>
+                <Link className='mx-[32px]' to='/naruto'>
+                  Naruto
+                </Link>
+              </div>
+              <div>
+                <span className='text-white'>{user.email}</span>
+                <button className='bg-white' onClick={handleClick}>
+                  <span className='text-black'>Log out</span>
+                </button>
+              </div>
+            </>
           )}
           {!user && (
             <div>
