@@ -6,7 +6,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const gifRoutes = require('./routes/gif');
 const userRoutes = require('./routes/user');
-const categoryRoutes = require('./routes/category');
 const seedDatabase = require('./seed/gifsSeed');
 
 const app = express();
@@ -24,7 +23,6 @@ app.use(
 
 app.use('/api/gifs', gifRoutes);
 app.use('/api/user', userRoutes);
-app.use('/api/categories', categoryRoutes);
 
 app.get('/api/seed', seedDatabase);
 
