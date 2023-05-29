@@ -1,6 +1,5 @@
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { FaTrashAlt } from 'react-icons/fa';
-import { GrEdit } from 'react-icons/gr';
+import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { useGifsContext } from '../hooks/useGifsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useState } from 'react';
@@ -28,7 +27,7 @@ export const GifDetails = ({ gif }) => {
             },
           }
         );
-        console.log(response);
+
         if (response.ok) {
           dispatch({ type: 'DELETE_GIF', payload: gif._id });
         } else {
@@ -45,7 +44,6 @@ export const GifDetails = ({ gif }) => {
 
   return (
     <div className='gif-details bg-black mx-auto my-8 p-4 relative rounded-xl '>
-      <p className='m-0 text-black'>{gif.category}</p>
       <span className='mt-6 text-black'>
         <img src={gif.img} alt='Gif' />
       </span>
@@ -53,11 +51,11 @@ export const GifDetails = ({ gif }) => {
         {formatDistanceToNow(new Date(gif.createdAt), { addSuffix: true })}
       </p>
       <div>
-        <span className='absolute top-5 right-12 p-1.5 cursor-pointer'>
-          <GrEdit />
+        <span className='absolute top-5 right-12 p-1.5 cursor-pointer rounded-full bg-black text-[orange]'>
+          <FaEdit />
         </span>
         <span
-          className='p-1.5 top-5 right-4 cursor-pointer absolute text-error'
+          className='absolute top-5 right-4 p-1.5 cursor-pointer rounded-full bg-black text-[red]'
           onClick={handleClick}
         >
           <FaTrashAlt />
