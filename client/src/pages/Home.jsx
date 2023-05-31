@@ -32,11 +32,11 @@ export const Home = () => {
   }, [dispatch, user]);
 
   return (
-    <div className='grid gap-24 grid-cols-2'>
-      <div className='gifs'>
+    <>
+      {user && <GifForm />}
+      <div className='grid gap-10 grid-cols-4'>
         {gifs && gifs.map((gif) => <GifDetails key={gif._id} gif={gif} />)}
       </div>
-      {user && <GifForm />}
-    </div>
+    </>
   );
 };
