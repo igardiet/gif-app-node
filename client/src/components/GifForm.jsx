@@ -62,18 +62,18 @@ export const GifForm = () => {
         onChange={handleFileChange}
       />
       <button
-        className='bg-black text-white cursor-pointer border-none p-2.5 rounded'
+        className='bg-black text-white cursor-pointer p-2 rounded'
         type='submit'
         disabled={!img}
       >
         Upload
       </button>
       {error && <p className='text-red'>{error}</p>}
-      {voidInput.map((_, index) => (
+      {/* {voidInput.map((_, index) => (
         <div key={index} className='mb-2'>
           <input type='text' value='' className='hidden' disabled />
         </div>
-      ))}
+      ))} */}
     </form>
   );
 };
