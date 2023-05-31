@@ -43,22 +43,21 @@ export const GifDetails = ({ gif }) => {
   };
 
   return (
-    <div className='gif-details bg-black mx-auto my-8 p-4 relative rounded-xl '>
-      <span className='mt-6 text-black'>
-        <img src={gif.img} alt='Gif' />
-      </span>
-      <p className='text-xs mt-6 text-black'>
+    <div className='gif-details bg-black mx-auto my-8 p-4 relative rounded-xl w-64'>
+      <div className='w-full h-48'>
+        <img
+          src={gif.img}
+          alt='Gif'
+          className='w-full h-full object-cover rounded'
+        />
+      </div>
+      <p className='text-xs mt-4 text-white'>
         {formatDistanceToNow(new Date(gif.createdAt), { addSuffix: true })}
       </p>
-      <div>
-        <span className='absolute top-5 right-12 p-1.5 cursor-pointer rounded-full bg-black text-[orange]'>
-          <FaEdit />
-        </span>
-        <span
-          className='absolute top-5 right-4 p-1.5 cursor-pointer rounded-full bg-black text-[red]'
-          onClick={handleClick}
-        >
-          <FaTrashAlt />
+      <div className='flex items-center justify-center'>
+        <span className='flex cursor-pointer rounded-full bg-black'>
+          <FaEdit className='text-[orange] mx-3 mt-4' />
+          <FaTrashAlt className='text-[red] mx-3 mt-4' onClick={handleClick} />
         </span>
       </div>
       {deleting && <p className='text-black'>Deleting...</p>}
