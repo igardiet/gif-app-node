@@ -5,9 +5,9 @@ const { uploadFile } = require('../cloudinary/cloudinary');
 
 const getGifs = async (req, res) => {
   try {
-    const gifs = await Gif.find({ category: 'akira' })
+    const gifs = await Gif.find({ category: 'naruto' })
       .sort({ createdAt: -1 })
-      .limit(20);
+      .limit(32);
 
     res.status(200).json(gifs);
   } catch (error) {
