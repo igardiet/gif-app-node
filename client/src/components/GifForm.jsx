@@ -2,11 +2,16 @@ import { useState } from 'react';
 import { useGifsContext } from '../hooks/useGifsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
-export const GifForm = () => {
+export const GifForm = ({ onClose }) => {
   const { dispatch } = useGifsContext();
   const { user } = useAuthContext();
 
+  //refactor
   const [img, setImg] = useState(null);
+  const [category, setCategory] = useState('naruto');
+  const [title, setTitle] = useState('');
+  ///
+
   const [error, setError] = useState(null);
   const [voidInput, setVoidInput] = useState([]);
 
@@ -20,6 +25,8 @@ export const GifForm = () => {
 
     const formData = new FormData();
     formData.append('img', img);
+    formData.append('title', title);
+    formData.append('category', category);
     formData.append('email', user.email);
 
     const response = await fetch('http://localhost:3000/api/gifs', {
@@ -36,6 +43,7 @@ export const GifForm = () => {
       setVoidInput(json.voidInput);
     }
     if (json.success) {
+      onClose();
       setImg(null);
       setError(null);
       setVoidInput([]);
@@ -49,7 +57,7 @@ export const GifForm = () => {
 
   return (
     <form
-      className='gif-form mx-auto my-8 p-4 relative rounded-xl'
+      className='mx-auto my-8 p-4 relative rounded-xl'
       onSubmit={handleSubmit}
     >
       <h2 className='text-2xl text-black mb-4'>Add a GIF</h2>
@@ -61,6 +69,17 @@ export const GifForm = () => {
         accept='.gif'
         onChange={handleFileChange}
       />
+      <input
+        type='text'
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value='naruto'>Naruto</option>
+        <option value='akira'>Akira</option>
+        <option value='dragonBall'>Dragon Ball</option>
+      </select>
+
       <button
         className='bg-black text-white cursor-pointer p-2 rounded'
         type='submit'
@@ -69,11 +88,6 @@ export const GifForm = () => {
         Upload
       </button>
       {error && <p className='text-red'>{error}</p>}
-      {/* {voidInput.map((_, index) => (
-        <div key={index} className='mb-2'>
-          <input type='text' value='' className='hidden' disabled />
-        </div>
-      ))} */}
     </form>
   );
 };
