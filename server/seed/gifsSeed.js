@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const naruto = require('./data/naruto');
 const dragonBall = require('./data/dragonBall');
 const akira = require('./data/akira');
@@ -13,7 +12,7 @@ const seedDatabase = async () => {
       return {
         title: gif.title || 'No title',
         img: gif.images.original.url,
-        // category: 'naruto',
+        category: 'naruto',
         user_id: 'default_user',
       };
     });
@@ -24,7 +23,7 @@ const seedDatabase = async () => {
       return {
         title: gif.title || 'No title',
         img: gif.images.original.url,
-        // category: 'dragonBall',
+        category: 'dragonBall',
         user_id: 'default_user',
       };
     });
@@ -35,7 +34,7 @@ const seedDatabase = async () => {
       return {
         title: gif.title || 'No title',
         img: gif.images.original.url,
-        // category: 'akira',
+        category: 'akira',
         user_id: 'default_user',
       };
     });
