@@ -5,12 +5,11 @@ const { uploadFile } = require('../cloudinary/cloudinary');
 
 const getGifs = async (req, res) => {
   try {
-    const gifs = await Gif.find({ category: 'naruto' })
-      .sort({ createdAt: -1 })
-      .limit(32);
+    const gifs = await Gif.find({}).sort({ createdAt: -1 });
 
     res.status(200).json(gifs);
   } catch (error) {
+    console.warn(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -31,7 +30,7 @@ const getGif = async (req, res) => {
 };
 
 const postGif = async (req, res) => {
-  const { email } = req.body;
+  const { email, category, title } = req.body;
   const img = req.files.img.tempFilePath;
   try {
     const user = await User.findOne({ email });
@@ -39,6 +38,8 @@ const postGif = async (req, res) => {
 
     const gif = await Gif.create({
       user_id: user._id,
+      category,
+      title,
       img: result.secure_url,
     });
     return res.status(201).json({
@@ -46,7 +47,7 @@ const postGif = async (req, res) => {
       gif,
     });
   } catch (error) {
-    console.log(error);
+    console.warn(error);
   }
 };
 
@@ -65,22 +66,49 @@ const deleteGif = async (req, res) => {
 };
 
 const updateGif = async (req, res) => {
-  const { id } = req.params;
+  const { gifId, newTitle } = req.body;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ error: 'Invalid GIF ID!' });
-  }
-  const gif = await Gif.findOneAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
-    }
-  );
+  try {
+    await Gif.findOneAndUpdate(
+      { _id: gifId },
+      {
+        title: newTitle,
+      }
+    );
 
-  if (!gif) {
-    return res.status(400).json({ error: 'Gif not found!' });
+    res.status(200).json({ ok: true });
+  } catch (error) {
+    console.warn(error);
+    res.status(500).json({ error: error.message });
   }
-  res.status(200).json(gif);
+};
+
+const getGifsByCategory = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const gifs = await Gif.find({ category: category }).sort({ createdAt: -1 });
+
+    res.status(200).json(gifs);
+  } catch (error) {
+    console.warn(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const searchGifs = async (req, res) => {
+  const { query } = req.params;
+  try {
+    const gifs = await Gif.find({
+      title: {
+        $regex: new RegExp(query, 'i'),
+      },
+    }).sort({ createdAt: -1 });
+
+    res.status(200).json(gifs);
+  } catch (error) {
+    console.warn(error);
+    res.status(500).json({ error: error.message });
+  }
 };
 
 module.exports = {
@@ -89,4 +117,6 @@ module.exports = {
   postGif,
   deleteGif,
   updateGif,
+  getGifsByCategory,
+  searchGifs,
 };
