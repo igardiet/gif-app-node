@@ -11,7 +11,7 @@ export const Home = () => {
         const json = await response.json();
         dispatch({ type: 'SET_GIFS', payload: json });
       } catch (error) {
-        console.log(error);
+        console.warn(error);
       }
     };
 
