@@ -4,10 +4,15 @@ import { useSignup } from '../hooks/useSignup';
 export const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
     await signup(email, password);
   };
 
@@ -24,6 +29,14 @@ export const Signup = () => {
         type='password'
         onChange={(e) => setPassword(e.target.value)}
         value={password}
+        minLength={'8'}
+        maxLength={'21'}
+      />
+      <input
+        placeholder='Confirm password'
+        type='password'
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        value={confirmPassword}
       />
       <button
         disabled={isLoading}
