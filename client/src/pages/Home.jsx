@@ -1,39 +1,34 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useGifsContext } from '../hooks/useGifsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { GifDetails } from '../components/GifDetails';
-import { GifForm } from '../components/GifForm';
+import { AddGifModal } from '../components/AddGifModal';
 
 export const Home = () => {
-  const { gifs, dispatch } = useGifsContext();
+  const { gifs, fetchGifs } = useGifsContext();
   const { user } = useAuthContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const fetchGifs = async () => {
-      let authorizationHeader = {};
-
-      if (user && user.token) {
-        authorizationHeader = {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        };
-      }
-      const response = await fetch('http://localhost:3000/api/gifs', {
-        ...authorizationHeader,
-      });
-      const json = await response.json();
-
-      if (response.ok) {
-        dispatch({ type: 'SET_GIFS', payload: json });
-      }
-    };
     fetchGifs();
-  }, [dispatch, user]);
+  }, [user]);
+
+  const handleModalOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <>
-      {user && <GifForm />}
+      {user && (
+        <button className='btn btn-primary' onClick={handleModalOpen}>
+          Add Gif
+        </button>
+      )}
+      {isModalOpen && <AddGifModal onClose={handleModalClose} />}
       <div className='grid gap-10 grid-cols-4'>
         {gifs && gifs.map((gif) => <GifDetails key={gif._id} gif={gif} />)}
       </div>
