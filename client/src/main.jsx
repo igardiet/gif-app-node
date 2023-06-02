@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AuthContextProvider } from './context/AuthContext';
-import { GifsContextProvider } from './context/GifContext';
+import { AuthContextProvider, GifsContextProvider } from './context';
 import { GifApp } from './GifApp';
 import './styles/index.css';
 
