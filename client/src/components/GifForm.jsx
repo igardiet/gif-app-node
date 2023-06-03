@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { useGifsContext } from '../hooks/useGifsContext';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useGifsContext, useAuthContext } from '../hooks';
 
 export const GifForm = ({ onClose }) => {
   const { dispatch } = useGifsContext();
@@ -56,11 +55,8 @@ export const GifForm = ({ onClose }) => {
   };
 
   return (
-    <form
-      className='mx-auto my-8 p-4 relative rounded-xl'
-      onSubmit={handleSubmit}
-    >
-      <h2 className='text-2xl text-black mb-4'>Add a GIF</h2>
+    <form className='mx-auto p-3 relative rounded-xl' onSubmit={handleSubmit}>
+      <h2 className='text-2xl text-black mb-3'>Add a new GIF!</h2>
       <input
         className={voidInput.includes('img') ? 'error' : ''}
         type='file'
@@ -73,20 +69,27 @@ export const GifForm = ({ onClose }) => {
         type='text'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder='Gif title'
+        required
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value='naruto'>Naruto</option>
-        <option value='akira'>Akira</option>
-        <option value='dragonBall'>Dragon Ball</option>
-      </select>
-
-      <button
-        className='bg-black text-white cursor-pointer p-2 rounded'
-        type='submit'
-        disabled={!img}
-      >
-        Upload
-      </button>
+      <span className='flex p-3'>
+        <select
+          className='outline-none w-[20%] mx-10'
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value='naruto'>Naruto</option>
+          <option value='akira'>Akira</option>
+          <option value='dragonBall'>Dragon Ball</option>
+        </select>
+        <button
+          className='bg-[#ff3f34] text-white cursor-pointer p-2 rounded'
+          type='submit'
+          disabled={!img}
+        >
+          Upload
+        </button>
+      </span>
       {error && <p className='text-red'>{error}</p>}
     </form>
   );
