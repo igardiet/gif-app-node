@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GifsContext } from '../context/GifContext';
+import { GifsContext } from '../context';
 
 export const useGifsContext = () => {
   const context = useContext(GifsContext);
