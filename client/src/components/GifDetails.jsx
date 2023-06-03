@@ -50,7 +50,7 @@ export const GifDetails = ({ gif }) => {
   };
 
   return (
-    <div className='gif-details bg-[#eccc68] mx-auto my-8 p-1 relative rounded-xl w-64 flex flex-col justify-between'>
+    <div className='gif-details bg-[#FC427B] mx-auto my-8 p-1 relative rounded-xl w-64 flex flex-col justify-between'>
       <span className='w-full h-48'>
         <img
           src={gif.img}
