@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useGifsContext } from '../hooks/useGifsContext';
-import { useAuthContext } from '../hooks/useAuthContext';
-import { GifDetails } from '../components/GifDetails';
-import { AddGifModal } from '../components/AddGifModal';
+import { useGifsContext, useAuthContext } from '../hooks';
+import { GifDetails, AddGifModal } from '../components';
 
 export const Home = () => {
   const { gifs, fetchGifs } = useGifsContext();
@@ -24,7 +22,7 @@ export const Home = () => {
   return (
     <>
       {user && (
-        <button className='btn btn-primary' onClick={handleModalOpen}>
+        <button className='btn btn-danger' onClick={handleModalOpen}>
           Add Gif
         </button>
       )}
