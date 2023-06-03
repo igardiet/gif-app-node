@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { GifsContext } from '../context/GifContext';
-import { GifDetails } from '../components/GifDetails';
+import { GifsContext } from '../context';
+import { GifDetails } from '../components';
 
 export const Akira = () => {
   const { fetchGifsByCategory, gifs } = useContext(GifsContext);
@@ -10,14 +10,11 @@ export const Akira = () => {
   }, []);
 
   return (
-    <>
-      <h2>Akira</h2>
-      <div>
+      <div className='grid gap-10 grid-cols-4'>
         {gifs &&
           gifs.map((gif) => {
             return <GifDetails key={gif._id} gif={gif} />;
           })}
       </div>
-    </>
   );
 };
