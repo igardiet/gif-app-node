@@ -2,29 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* layout */
-:root {
-  --primary: #000;
-  --error: red;
-}
 * {
-  font-family: 'Rubik 80s Fade', cursive;
+  font-family: 'Aboreto', cursive;
 }
 .gif-details {
-  box-shadow: 2px 2px 5px var(--primary);
+  box-shadow: 2px 2px 5px #FC427B;
 }
 
-/* new gif form */
-label,
 input {
   display: block;
-}
-input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid var(--primary);
+  border: 1px solid black;
   border-radius: 4px;
   box-sizing: border-box;
   outline: none;
@@ -32,13 +23,13 @@ input {
 div.error {
   padding: 10px;
   background: #ffefef;
-  border: 1px solid var(--error);
-  color: var(--error);
+  border: 1px solid red;
+  color: red;
   border-radius: 4px;
   margin: 20px 0;
 }
 input.error {
-  border: 1px solid var(--error);
+  border: 1px solid red;
 }
 /* navbar */
 nav a {
@@ -46,9 +37,9 @@ nav a {
   color: #fff;
 }
 nav button {
-  background-color: var(--primary);
+  background-color: black;
   color: whitesmoke;
-  border: 2px solid var(--primary);
+  border: 2px solid black;
   padding: 6px 10px;
   border-radius: 4px;
   cursor: pointer;
@@ -59,10 +50,10 @@ nav button {
 form.signup,
 form.login {
   max-width: 400px;
-  margin: 16.8% auto;
+  margin: 5% auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #303952;
   border-radius: 4px;
-  border: 2px solid var(--primary);
-  box-shadow: 2px 2px 5px var(--primary);
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px black;
 }
