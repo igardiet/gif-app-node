@@ -4,13 +4,11 @@ import { useGifsContext, useAuthContext } from '../hooks';
 export const GifForm = ({ onClose }) => {
   const { dispatch } = useGifsContext();
   const { user } = useAuthContext();
-
   //refactor
   const [img, setImg] = useState(null);
   const [category, setCategory] = useState('naruto');
   const [title, setTitle] = useState('');
   ///
-
   const [error, setError] = useState(null);
   const [voidInput, setVoidInput] = useState([]);
 
@@ -89,6 +87,7 @@ export const GifForm = ({ onClose }) => {
         >
           Upload
         </button>
+        {!img && <p className='m-auto'>Select a GIF to continue!</p>}
       </span>
       {error && <p className='text-red'>{error}</p>}
     </form>
