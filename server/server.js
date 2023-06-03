@@ -1,12 +1,12 @@
 require('dotenv').config();
-const { dbConnection } = require('./database/config');
 const fileUpload = require('express-fileupload');
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const { dbConnection } = require('./database/config');
+const seedDatabase = require('./seed/gifsSeed');
 const gifRoutes = require('./routes/gif');
 const userRoutes = require('./routes/user');
-const seedDatabase = require('./seed/gifsSeed');
 
 const app = express();
 
