@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { GifsContext } from '../context/GifContext';
+import { GifsContext } from '../context';
 
 export const SearchBar = () => {
   const { searchGifs, fetchGifs } = useContext(GifsContext);
@@ -17,16 +17,14 @@ export const SearchBar = () => {
     searchGifs(e.target.value);
   };
   return (
-    <>
-      <input
-        className='w-[15%] h-6 mb-0'
-        type='search'
-        name='filter'
-        value={query}
-        placeholder='Search'
-        aria-label='Search'
-        onChange={handleSearch}
-      />
-    </>
+    <input
+      className='w-[15%] h-6 mb-0'
+      type='search'
+      name='filter'
+      value={query}
+      placeholder='Search'
+      aria-label='Search'
+      onChange={handleSearch}
+    />
   );
 };
