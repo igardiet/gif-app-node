@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
-const naruto = require('./data/naruto');
-const dragonBall = require('./data/dragonBall');
-const akira = require('./data/akira');
-const Gif = require('../models/gifModel');
+const { akira, dragonBall, naruto } = require('./data');
+const Gif = require('../models/gifModel')
+
 
 const seedDatabase = async () => {
   try {
