@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useLogout } from '../hooks/useLogout';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useLogout, useAuthContext } from '../hooks';
 import { SearchBar } from './SearchBar';
 
 export const Navbar = () => {
@@ -15,7 +14,7 @@ export const Navbar = () => {
   const isSearchBarVisible = location.pathname === '/';
 
   return (
-    <header className='bg-black'>
+    <header className='bg-[#303952]'>
       <div className='container max-w-full m-auto px-8 py-4 flex items-center justify-between'>
         <Link to='/'>
           <h1 className='no-underline text-white'>GifApp</h1>

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGifsContext } from '../hooks/useGifsContext';
+import { useGifsContext } from '../hooks';
 
 export const Home = () => {
   const { gifs, dispatch } = useGifsContext();

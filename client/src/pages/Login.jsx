@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLogin } from '../hooks/useLogin';
+import { useLogin } from '../hooks';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ export const Login = () => {
       />
       <button
         disabled={isLoading}
-        className='bg-black text-white cursor-pointer border-none p-2.5 rounded'
+        className='bg-[#ff3f34] text-white cursor-pointer border-none p-2.5 rounded'
       >
         Log in
       </button>

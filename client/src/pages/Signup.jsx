@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSignup } from '../hooks/useSignup';
+import { useSignup } from '../hooks';
 
 export const Signup = () => {
   const [email, setEmail] = useState('');
@@ -40,7 +40,7 @@ export const Signup = () => {
       />
       <button
         disabled={isLoading}
-        className='bg-black text-white cursor-pointer border-none p-2.5 rounded'
+        className='bg-[#ff3f34] text-white cursor-pointer border-none p-2.5 rounded'
       >
         Sign up
       </button>
