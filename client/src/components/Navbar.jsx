@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useLogout, useAuthContext } from '../hooks';
 import { SearchBar } from './SearchBar';
+import logo from '../assets/aniLogo.png';
 
 export const Navbar = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ export const Navbar = () => {
     <header className='bg-[#303952]'>
       <div className='container max-w-full m-auto px-8 py-4 flex items-center justify-between'>
         <Link to='/'>
-          <h1 className='no-underline text-white'>GifApp</h1>
+          <img src={logo} alt='App logo' className='h-10 w-15' />
         </Link>
         <div className='flex mr-22 items-center text-white'>
           <Link className='mx-8' to='/akira'>
