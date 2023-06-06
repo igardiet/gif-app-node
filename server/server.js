@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fileUpload = require('express-fileupload');
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
 const { dbConnection } = require('./database/config');
@@ -9,6 +10,7 @@ const gifRoutes = require('./routes/gif');
 const userRoutes = require('./routes/user');
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../client/dist'))); // tell railway client dist folder
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
