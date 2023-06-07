@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 * {
-  font-family: 'Aboreto', cursive;
+  font-family: 'Contrail One', cursive;
 }
 .gif-details {
-  box-shadow: 2px 2px 5px #FC427B;
+  box-shadow: 2px 2px 5px #fc427b;
 }
 
 input {
@@ -57,3 +57,28 @@ form.login {
   border: 2px solid black;
   box-shadow: 2px 2px 5px black;
 }
+
+.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+/* INSERT AND HIDE CARD TITLE SCROLLBAR */
+/* .scroll-container {
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+  display: none;
+}
+
+.scroll-text {
+  white-space: nowrap;
+  overflow-x: auto;
+} */
