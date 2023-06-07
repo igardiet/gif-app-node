@@ -1,18 +1,14 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useLogout, useAuthContext } from '../hooks';
-import { SearchBar } from './SearchBar';
 import logo from '../assets/aniLogo.png';
 
 export const Navbar = () => {
-  const location = useLocation();
   const { logout } = useLogout();
   const { user } = useAuthContext();
 
   const handleClick = () => {
     logout();
   };
-
-  const isSearchBarVisible = location.pathname === '/';
 
   return (
     <header className='bg-[#303952]'>
@@ -31,14 +27,16 @@ export const Navbar = () => {
             Naruto
           </Link>
         </div>
-        {isSearchBarVisible && <SearchBar />}
         <nav className='flex items-center'>
           {user && (
             <>
               <div className='flex items-center ml-auto'>
                 <span className='text-white'>{user.email}</span>
-                <button className='bg-white' onClick={handleClick}>
-                  <span className='text-black'>Log out</span>
+                <button
+                  className='bg-[#FC427B] border-[#FC427B]'
+                  onClick={handleClick}
+                >
+                  <span className='text-white'>Log out</span>
                 </button>
               </div>
             </>
