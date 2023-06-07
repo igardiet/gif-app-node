@@ -1,4 +1,4 @@
-# Gif MERN app
+# Gifani
 Containing:
 - Home, login, signup and three category routes
 - React context and hooks
