@@ -1,4 +1,4 @@
-# Gifani
+# <a href="https://gifani.netlify.app">Gifani</a>
 Containing:
 - Home, login, signup and three category routes
 - React context and hooks
@@ -58,4 +58,4 @@ Requirements for the software and other tools to build, test and push
 - App deploy
 
 ## Author
-- <a href="https://github.com/igardiet">Iñaki García</a>
+<a href="https://github.com/igardiet">Iñaki García</a>
