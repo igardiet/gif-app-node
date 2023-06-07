@@ -18,14 +18,10 @@ For more info look up the package.json files
 - [Author](#author)
 
 ## Getting Started and installing
-
+#### Remember you need to clone and start the server side repository to view the full app
 1. Clone the repository and open the terminal
-2. cd server
 3. yarn
 4. yarn start
-5. cd client
-6. yarn
-7. yarn start
 
 Check the .env.example files to peer the required environment variables
 
