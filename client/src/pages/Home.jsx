@@ -35,7 +35,7 @@ export const Home = () => {
         {isSearchBarVisible && <SearchBar />}
       </div>
       {isModalOpen && <AddGifModal onClose={handleModalClose} />}
-      <div className='grid gap-10 grid-cols-4'>
+      <div className='grid grid-cols-4'>
         {gifs && gifs.map((gif) => <GifDetails key={gif._id} gif={gif} />)}
       </div>
     </>
