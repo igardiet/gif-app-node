@@ -41,7 +41,7 @@ Requirements for the software and other tools to build, test and push
 - nodemon: npm i -g nodemon
 
 ## Preview
-![Home page preview](/client/src/assets/appImage.png)
+![Home page preview](/src/assets/appImage.png)
 
 ## Technologies
 - React Vite app
