@@ -7,7 +7,9 @@ export const Home = () => {
   useEffect(() => {
     const fetchGifs = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/gifs');
+        const response = await fetch(
+          `${import.meta.env.VITE_APP_API_URL}/api/gifs`
+        );
         const json = await response.json();
         dispatch({ type: 'SET_GIFS', payload: json });
       } catch (error) {

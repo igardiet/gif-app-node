@@ -8,7 +8,6 @@ export const GifDetails = ({ gif }) => {
   const { user } = useAuthContext();
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState(null);
-
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(gif.title);
 
@@ -26,7 +25,7 @@ export const GifDetails = ({ gif }) => {
       try {
         setDeleting(true);
         const response = await fetch(
-          'http://localhost:3000/api/gifs/' + gif._id,
+          `${import.meta.env.VITE_APP_API_URL}/api/gifs/${gif._id}`,
           {
             method: 'DELETE',
             headers: {
@@ -67,7 +66,9 @@ export const GifDetails = ({ gif }) => {
             onChange={(e) => setEditValue(e.target.value)}
           />
         ) : (
-          <p className='text-white truncate'>{gif.title}</p>
+          <div className='scroll-container'>
+            <p className='text-white scroll-text truncate'>{gif.title}</p>
+          </div>
         )}
         <p className='text-white text-xs'>{gif.category}</p>
         <p className='text-xs pt-3 text-white'>

@@ -28,7 +28,9 @@ export const GifsContextProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
 
   const fetchGifs = async () => {
-    const response = await fetch('http://localhost:3000/api/gifs');
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/gifs`
+    );
     const json = await response.json();
 
     if (response.ok) {
@@ -38,7 +40,7 @@ export const GifsContextProvider = ({ children }) => {
 
   const fetchGifsByCategory = async (category) => {
     const response = await fetch(
-      `http://localhost:3000/api/gifs/category/${category}`
+      `${import.meta.env.VITE_APP_API_URL}/api/gifs/category/${category}`
     );
     const json = await response.json();
 
@@ -49,7 +51,7 @@ export const GifsContextProvider = ({ children }) => {
 
   const searchGifs = async (query) => {
     const response = await fetch(
-      `http://localhost:3000/api/gifs/search/${query}`
+      `${import.meta.env.VITE_APP_API_URL}/api/gifs/search/${query}`
     );
     const json = await response.json();
 
@@ -61,14 +63,17 @@ export const GifsContextProvider = ({ children }) => {
   const editGif = async (gifId, newTitle) => {
     const gifData = { gifId, newTitle };
     try {
-      const response = await fetch('http://localhost:3000/api/gifs/edit', {
-        method: 'PUT',
-        body: JSON.stringify(gifData),
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_API_URL}/api/gifs/edit`,
+        {
+          method: 'PUT',
+          body: JSON.stringify(gifData),
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const data = await response.json();
 
       if (data?.ok) {

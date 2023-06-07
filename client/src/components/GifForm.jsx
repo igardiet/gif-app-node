@@ -26,13 +26,16 @@ export const GifForm = ({ onClose }) => {
     formData.append('category', category);
     formData.append('email', user.email);
 
-    const response = await fetch('http://localhost:3000/api/gifs', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-      body: formData,
-    });
+    const response = await fetch(
+      `${import.meta.env.VITE_APP_API_URL}/api/gifs`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        body: formData,
+      }
+    );
 
     const json = await response.json();
     if (!json.success) {
@@ -72,16 +75,24 @@ export const GifForm = ({ onClose }) => {
       />
       <span className='flex p-3'>
         <select
-          className='outline-none w-[20%] mx-10'
+          className='outline-none w-[20%] mx-10 cursor-pointer'
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value='naruto'>Naruto</option>
-          <option value='akira'>Akira</option>
-          <option value='dragonBall'>Dragon Ball</option>
+          <option className='cursor-pointer' value='naruto'>
+            Naruto
+          </option>
+          <option className='cursor-pointer' value='akira'>
+            Akira
+          </option>
+          <option className='cursor-pointer' value='dragonBall'>
+            Dragon Ball
+          </option>
         </select>
         <button
-          className='bg-[#ff3f34] text-white cursor-pointer p-2 rounded'
+          className={`bg-[#ff3f34] text-white cursor-pointer p-2 rounded ${
+            !img ? 'disabled' : ''
+          }`}
           type='submit'
           disabled={!img}
         >
