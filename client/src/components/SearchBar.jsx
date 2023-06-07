@@ -18,11 +18,11 @@ export const SearchBar = () => {
   };
   return (
     <input
-      className='w-[15%] h-6 mb-0'
+      className='w-[20%] ml-10 h-10 my-0 bg-white border-[#FC427B]'
       type='search'
       name='filter'
       value={query}
-      placeholder='Search'
+      placeholder='Search GIF'
       aria-label='Search'
       onChange={handleSearch}
     />
