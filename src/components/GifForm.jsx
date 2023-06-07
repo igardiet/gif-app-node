@@ -79,13 +79,13 @@ export const GifForm = ({ onClose }) => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option className='cursor-pointer' value='naruto'>
+          <option value='naruto'>
             Naruto
           </option>
-          <option className='cursor-pointer' value='akira'>
+          <option value='akira'>
             Akira
           </option>
-          <option className='cursor-pointer' value='dragonBall'>
+          <option value='dragonBall'>
             Dragon Ball
           </option>
         </select>
