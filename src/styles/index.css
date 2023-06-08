@@ -31,7 +31,7 @@ div.error {
 input.error {
   border: 1px solid red;
 }
-/* navbar */
+
 nav a {
   margin-left: 10px;
   color: #fff;
@@ -46,7 +46,7 @@ nav button {
   font-size: 1em;
   margin-left: 10px;
 }
-/* auth forms */
+
 form.signup,
 form.login {
   max-width: 400px;
@@ -62,23 +62,3 @@ form.login {
   background-color: gray;
   cursor: not-allowed;
 }
-
-/* INSERT AND HIDE CARD TITLE SCROLLBAR */
-/* .scroll-container {
-  width: 100%;
-  overflow-x: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.scroll-container::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  background-color: transparent;
-  display: none;
-}
-
-.scroll-text {
-  white-space: nowrap;
-  overflow-x: auto;
-} */
