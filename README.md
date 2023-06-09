@@ -1,4 +1,4 @@
-# <a href="https://gifani.netlify.app">Gifani</a>
+# <a href="https://gifani.netlify.app">Gifani</a> (App url)
 Containing:
 - Home, login, signup and three category routes
 - React context and hooks
